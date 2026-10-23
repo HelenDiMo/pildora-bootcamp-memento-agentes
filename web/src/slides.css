@@ -1,0 +1,145 @@
+/* ===== 1 · Portada ===== */
+.portada { display: flex; align-items: center; gap: clamp(28px, 6vw, 90px); flex-wrap: wrap; }
+.portada-texto { flex: 1 1 380px; }
+.portada-titulo { font-size: clamp(3.4rem, 9vw, 8.5rem); margin-bottom: .1em; }
+.portada-sub { font-family: var(--f-titulo); font-weight: 600; font-size: clamp(1.5rem, 2.8vw, 2.4rem); color: var(--neon); margin-bottom: 1rem; }
+.portada-texto .suave { max-width: 48ch; }
+.portada-pista { margin-top: 2rem; color: var(--tinta-clara); font-size: 1.05rem; }
+
+/* ===== 2 · Leonard ===== */
+.chat { background: var(--papel); color: #222; padding: 18px; border-radius: 4px; display: grid; gap: 10px; rotate: 1deg; box-shadow: 0 18px 34px rgba(5,10,16,.45); }
+.chat-cabecera { display: flex; justify-content: space-between; font-size: .8rem; color: #666; border-bottom: 1px dashed #c9c4b6; padding-bottom: 8px; }
+.reloj { font-family: var(--f-codigo); }
+.reloj.aviso { color: var(--quimico); }
+.burbuja { padding: 8px 12px; border-radius: 10px; max-width: 85%; animation: aparecer .4s ease both; }
+.burbuja.tú { background: #e4e8f8; justify-self: end; }
+.burbuja.llm { background: #ece9df; }
+@keyframes aparecer { from { opacity: 0; translate: 0 6px; } }
+.chat-borrado .burbuja:not(.despierta) { animation: borrar 1.4s ease forwards; }
+@keyframes borrar { to { opacity: .08; filter: blur(5px); } }
+.burbuja.despierta { font-family: var(--f-mano); color: var(--tinta); background: transparent; animation-delay: 1.2s; }
+.chat .boton { justify-self: start; background: var(--noche); color: var(--papel); box-shadow: none; }
+
+/* ===== 3 · Agente ===== */
+.ecuacion { display: flex; flex-wrap: wrap; gap: .5em; align-items: baseline; font-family: var(--f-titulo); font-weight: 800; font-size: clamp(1.6rem, 3.2vw, 2.6rem); margin-bottom: 1rem; }
+.ecuacion span { background: var(--noche-2); border: 1px solid var(--noche-3); padding: .05em .45em; border-radius: 3px; }
+.ecuacion b { color: var(--texto-suave); font-weight: 600; }
+.ecuacion .destaca { background: var(--papel); color: var(--noche); }
+.preguntas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 1.4rem; }
+.pregunta { font-size: 1.35rem; color: var(--neon); margin-bottom: .3rem; }
+.piezas td:first-child { font-family: var(--f-mano); color: var(--tinta-clara); }
+@media (max-width: 720px) { .preguntas { grid-template-columns: 1fr; } }
+
+/* ===== 4 · ReAct ===== */
+.react-cabecera { display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: center; }
+.react .subtitulo { margin-bottom: 1rem; }
+.bucle { width: 100%; color: var(--texto-suave); }
+.bucle .n rect { fill: var(--noche-2); stroke: var(--noche-3); stroke-width: 1.5; transition: fill .3s, stroke .3s; }
+.bucle .n text { fill: var(--texto); font-size: 13px; text-anchor: middle; font-family: var(--f-codigo); }
+.bucle .n.on rect { fill: var(--papel); stroke: var(--papel); }
+.bucle .n.on text { fill: var(--noche); font-weight: 600; }
+.bucle .flecha { fill: none; stroke: currentColor; stroke-width: 1.5; }
+.bucle .mini { fill: var(--texto-suave); font-size: 12px; text-anchor: middle; }
+.react-cuerpo { display: grid; grid-template-columns: 1fr minmax(0, 470px); gap: 24px; margin-bottom: 1rem; }
+@media (min-width: 901px) { .react-cuerpo { min-height: 330px; } }
+.traza { list-style: none; padding: 0; display: grid; gap: 6px; align-content: start; }
+.paso { display: grid; grid-template-columns: 7.5em 1fr; gap: 10px; padding: 6px 10px; border-left: 3px solid var(--noche-3); animation: aparecer .35s ease both; font-size: .95rem; }
+.paso .etq { color: var(--texto-suave); font-size: .85rem; padding-top: .1em; }
+.paso.pensar { border-color: var(--tinta-clara); }
+.paso.pensar span:last-child { font-style: italic; }
+.paso.actuar { border-color: var(--neon); }
+.paso.actuar .cod { font-family: var(--f-codigo); color: var(--neon); font-size: .88rem; }
+.paso.observar { border-color: var(--papel); background: rgba(246,244,238,.05); }
+.paso.responder { border-color: var(--quimico); background: rgba(185,80,127,.14); font-weight: 600; }
+.paso.vacio { grid-template-columns: 1fr; border-color: transparent; }
+.pared { display: flex; flex-wrap: wrap; gap: 14px; align-content: start; justify-content: center; }
+.flash { position: fixed; inset: 0; background: #fff; pointer-events: none; animation: flash .45s ease-out forwards; z-index: 10; }
+@keyframes flash { from { opacity: .75; } to { opacity: 0; } }
+@media (max-width: 900px) { .react-cabecera, .react-cuerpo { grid-template-columns: 1fr; } .bucle { max-width: 300px; } }
+
+/* ===== 5 · Plan-and-Execute ===== */
+.libreta {
+  background: var(--papel) repeating-linear-gradient(transparent 0 33px, #c8d3ec 33px 34px);
+  background-position: 0 14px;
+  color: #222; padding: 18px 22px 22px 54px; border-left: 2px solid #e2a0b4;
+  box-shadow: 0 18px 34px rgba(5,10,16,.45); rotate: -1deg; margin-bottom: 16px; min-height: 250px;
+}
+.libreta-titulo { color: var(--tinta); font-size: 1.4rem; margin-bottom: .3rem; }
+.libreta ol { padding-left: 1em; display: grid; gap: 4px; }
+.libreta li { line-height: 34px; color: var(--tinta); }
+.libreta li .mano { font-size: 1.15rem; }
+.libreta li.hecho .mano { text-decoration: line-through 2px; text-decoration-color: rgba(43,71,201,.5); }
+.libreta li.falla .mano { text-decoration: line-through 3px var(--quimico); }
+.libreta li.nuevo { animation: aparecer .5s ease both; }
+.libreta .resultado { display: block; line-height: 1.3; font-size: .85rem; color: #555; margin: -4px 0 6px; }
+.libreta li.falla .resultado { color: var(--quimico); }
+.nota { margin-top: 1rem; font-size: .9rem; }
+
+/* ===== 6 · Reflexión ===== */
+.reflexion { display: grid; gap: 14px; margin-bottom: 16px; min-height: 290px; align-content: start; }
+.nota-reflexion { padding: 14px 16px; border-radius: 4px; animation: aparecer .4s ease both; }
+.nota-reflexion .quien { font-size: .8rem; color: var(--texto-suave); }
+.nota-reflexion.borrador { background: var(--noche-2); border: 1px dashed var(--texto-suave); }
+.nota-reflexion.critica { background: rgba(185,80,127,.16); border-left: 4px solid var(--quimico); }
+.nota-reflexion.critica p { font-family: var(--f-mano); font-size: 1.1rem; }
+.nota-reflexion.final { background: var(--papel); color: #222; }
+.nota-reflexion.final .quien { color: #666; }
+
+/* ===== 7 · Memoria ===== */
+.objetos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.objeto {
+  background: transparent; border: 1.5px solid var(--noche-3); border-radius: 6px; color: inherit;
+  min-height: 180px; padding: 16px 12px 40px; position: relative; display: grid; place-items: center;
+  transition: border-color .2s, background .2s;
+}
+.objeto:hover { border-color: var(--texto-suave); }
+.objeto.sel { border-color: var(--neon); background: rgba(240,164,58,.07); }
+.objeto-nombre { position: absolute; bottom: 10px; left: 0; right: 0; font-size: .85rem; color: var(--texto-suave); }
+.objeto.sel .objeto-nombre { color: var(--neon); }
+.post-it { background: #f3e27a; color: #333; padding: 12px 14px; rotate: -3deg; font-size: 1rem; line-height: 1.3; }
+.o-corto:not(.sel) .post-it { opacity: .55; filter: blur(.6px); }
+.tatuaje { font-family: var(--f-titulo); font-weight: 800; font-size: 1.5rem; color: #9fb3c9; letter-spacing: .02em; text-shadow: 0 0 1px #9fb3c9; }
+.ficha { background: var(--papel); color: var(--tinta); padding: 12px 14px; text-align: left; font-size: .95rem; line-height: 1.35; rotate: 1.5deg; }
+.detalle h3 { font-family: var(--f-titulo); font-size: 1.8rem; color: var(--neon); margin-bottom: .6rem; }
+.detalle dt { color: var(--texto-suave); font-size: .85rem; margin-top: .7rem; }
+.detalle dd { margin: 0; }
+@media (max-width: 520px) { .objetos { grid-template-columns: 1fr; } }
+
+/* ===== 8 · LangGraph ===== */
+.hilos { width: 100%; max-height: 210px; margin-bottom: 1rem; }
+.hilos .hilo { fill: var(--noche-2); stroke: var(--noche-3); }
+.hilos .hilo-t { fill: var(--texto); font-family: var(--f-codigo); font-size: 15px; }
+.hilos .msj { fill: var(--noche-3); }
+.hilos .enlace { stroke: var(--neon); stroke-width: 2; stroke-dasharray: 4 4; }
+.hilos .store { fill: rgba(240,164,58,.14); stroke: var(--neon); }
+.hilos .store-t { fill: var(--neon); font-family: var(--f-codigo); font-size: 16px; }
+.codigos { align-items: start; }
+
+/* ===== 9 · Envenenada ===== */
+.piel { background: linear-gradient(175deg, #cfa98e 0%, #bb9277 70%, #a97f66 100%); border-radius: 22px 90px 90px 22px; box-shadow: inset 0 -10px 24px rgba(60,30,15,.25); padding: 34px 28px; display: grid; gap: 22px; }
+.tatuaje-linea { display: grid; gap: 2px; padding: 6px 8px; border-radius: 4px; transition: background .3s; }
+.piel .tatuaje { color: #273445; text-shadow: none; font-size: clamp(1.2rem, 2vw, 1.6rem); cursor: help; }
+.piel .fuente { font-size: .8rem; color: #3a2a20; }
+.tatuaje-linea.marcado { background: rgba(185,80,127,.35); outline: 2px dashed var(--quimico); }
+.pista-espejo { color: #3a2a20 !important; font-size: .8rem; }
+.respuesta { margin: 14px 0; min-height: 120px; }
+.defensas { font-size: .95rem; }
+
+/* ===== 10 · Reto ===== */
+.reto-cabecera { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.cronometro { text-align: center; }
+.cronometro .tiempo { display: block; font-family: var(--f-titulo); font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; color: var(--papel); font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.cronometro.fin .tiempo { color: var(--quimico); }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 1rem 0 1.4rem; }
+.rol { background: var(--papel); color: #222; padding: 16px 18px 18px; rotate: var(--giro); box-shadow: 0 14px 26px rgba(5,10,16,.4); }
+.rol-nombre { color: var(--tinta); font-size: 1.6rem; line-height: 1.1; margin-bottom: .3rem; }
+.rol .suave { color: #666; font-size: .85rem; margin-top: .4rem; }
+.preparar { align-items: stretch; }
+.preparar h3 { font-family: var(--f-titulo); font-size: 1.4rem; margin-bottom: .4rem; }
+.preparar p + p { margin-top: .3rem; }
+@media (max-width: 760px) { .roles { grid-template-columns: 1fr; } }
+
+/* ===== 11 · Cierre ===== */
+.resumen { padding-left: 1.3em; display: grid; gap: .6em; margin-bottom: 1.4rem; font-size: 1.05rem; }
+.resumen li::marker { font-family: var(--f-titulo); font-weight: 800; color: var(--neon); }
+.recursos-t { font-family: var(--f-titulo); font-size: 1.4rem; margin-bottom: .4rem; }

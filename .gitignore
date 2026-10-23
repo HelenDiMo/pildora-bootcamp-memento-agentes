@@ -1,6 +1,17 @@
+# Claves
 .env
+
+# Python
 __pycache__/
-.ipynb_checkpoints/
+*.pyc
 .venv/
-node_modules/
+venv/
+.ipynb_checkpoints/
+
+# Web
+web/node_modules/
 web/dist/
+.vercel
+
+# Sistema
+.DS_Store
