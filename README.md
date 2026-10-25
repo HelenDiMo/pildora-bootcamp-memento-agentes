@@ -121,6 +121,7 @@ Importa el repo en Vercel y, en **Settings → Root Directory**, elige la carpet
 |---|---|
 | `Falta GROQ_API_KEY` | No existe el archivo `.env` o la clave está vacía |
 | Error 429 con Groq | Has llegado al límite gratuito: espera un minuto o usa Ollama |
+| Error 404 `model_not_found` con Groq | Groq retira modelos a menudo. Mira los disponibles en [console.groq.com/docs/models](https://console.groq.com/docs/models) y pon el nuevo en tu `.env`: `MODELO_GROQ=nombre-del-modelo` |
 | `activate: No such file or directory` en Git Bash | Usa `source .venv/Scripts/activate` (con `/` y `Scripts`, no `bin`) |
 | Windows: `OSError: [Errno 2] No such file or directory` al instalar, con un aviso de *Long Path* | La ruta de tu carpeta es demasiado larga (límite de 260 caracteres). Crea el entorno en una ruta corta: `python -m venv /d/venvs/memento` y `source /d/venvs/memento/Scripts/activate`, y elige ese Python como kernel en VS Code |
 | VS Code no muestra mi entorno como kernel | Regístralo con `python -m ipykernel install --user --name memento` y elígelo en **Select Kernel → Jupyter Kernel** |

@@ -24,7 +24,8 @@ load_dotenv()
 # ---------------------------------------------------------------------------
 # 1. Elegir el LLM
 # ---------------------------------------------------------------------------
-MODELO_GROQ = "llama-3.3-70b-versatile"
+# Desde agosto de 2026, los modelos Llama de Groq ya no están en el plan gratuito
+MODELO_GROQ = "openai/gpt-oss-120b"
 MODELO_OLLAMA = "llama3.1:8b"
 
 
