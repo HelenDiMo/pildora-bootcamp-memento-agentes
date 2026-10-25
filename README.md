@@ -29,6 +29,13 @@ El caso es una historia inventada, inspirada en la película *Memento* (2000).
 └── requirements.txt
 ```
 
+## Qué necesitas
+
+- **Python 3.10 o superior** (probado con 3.12).
+- **VS Code** con la extensión **Jupyter**, para abrir los notebooks.
+- **Un LLM:** Ollama en tu ordenador o una clave gratuita de Groq (ver paso 2).
+- **Node.js 20.19 o superior**, solo si quieres abrir la presentación en tu ordenador.
+
 ## Puesta en marcha
 
 ### 1. Instalar
@@ -43,6 +50,13 @@ source .venv/bin/activate        # Mac / Linux
 pip install -r requirements.txt
 ```
 
+> ⚠️ **Windows:** si al instalar sale un error `OSError: [Errno 2] No such file or directory` con un aviso de *Long Path*, la ruta de tu carpeta es demasiado larga. Crea el entorno en una ruta corta, fuera del repo:
+> ```bash
+> python -m venv /d/venvs/memento
+> source /d/venvs/memento/Scripts/activate
+> pip install -r requirements.txt
+> ```
+
 ### 2. Elegir un LLM (uno de los dos)
 
 **Opción A: Ollama (local, sin clave)**
@@ -51,7 +65,7 @@ pip install -r requirements.txt
 ollama pull llama3.1:8b          # pesa unos GB: descárgalo ANTES de clase
 ```
 
-En el notebook, deja `PROVEEDOR = "ollama"`.
+En la primera celda de cada notebook, pon `PROVEEDOR = "ollama"` (viene así por defecto).
 
 **Opción B: Groq (en la nube, gratis)**
 
@@ -59,7 +73,7 @@ En el notebook, deja `PROVEEDOR = "ollama"`.
 2. Copia la plantilla: `cp .env.example .env`
 3. Pega tu clave en `.env`: `GROQ_API_KEY=gsk_...`
 
-En el notebook, deja `PROVEEDOR = "groq"`.
+En la primera celda de cada notebook, pon `PROVEEDOR = "groq"`.
 
 > 🔒 El archivo `.env` está en `.gitignore`: **nunca subas tu clave a GitHub**.
 
@@ -71,6 +85,14 @@ En el notebook, deja `PROVEEDOR = "groq"`.
 2. `02_reto_individual_TODO.ipynb`: el ejercicio. Solo tienes que escribir donde pone `# TODO`.
 3. `03_reto_individual_solucion.ipynb`: la solución, por si te atascas.
 
+**Elegir el kernel en VS Code:** arriba a la derecha del notebook, pulsa **Select Kernel → Python Environments** y elige tu entorno (`.venv` o `memento`). Si no aparece, regístralo con:
+
+```bash
+python -m ipykernel install --user --name memento --display-name "Memento (Python)"
+```
+
+Después recarga VS Code y elígelo en **Select Kernel → Jupyter Kernel**.
+
 ## Ver la presentación
 
 ```bash
@@ -79,9 +101,13 @@ npm install
 npm run dev
 ```
 
-Navega con las flechas ← → del teclado.
+Navega con las flechas ← → del teclado (Inicio y Fin van a la primera y la última diapositiva).
 
-## El reto individual (22 min)
+### Publicarla en Vercel
+
+Importa el repo en Vercel y, en **Settings → Root Directory**, elige la carpeta **`web`**. El archivo `web/vercel.json` ya le dice que es un proyecto Vite.
+
+## El reto individual (22 min, en clase o en casa)
 
 | Misión | Qué haces | Concepto |
 |---|---|---|
@@ -97,6 +123,8 @@ Navega con las flechas ← → del teclado.
 | Error 429 con Groq | Has llegado al límite gratuito: espera un minuto o usa Ollama |
 | `activate: No such file or directory` en Git Bash | Usa `source .venv/Scripts/activate` (con `/` y `Scripts`, no `bin`) |
 | Windows: `OSError: [Errno 2] No such file or directory` al instalar, con un aviso de *Long Path* | La ruta de tu carpeta es demasiado larga (límite de 260 caracteres). Crea el entorno en una ruta corta: `python -m venv /d/venvs/memento` y `source /d/venvs/memento/Scripts/activate`, y elige ese Python como kernel en VS Code |
+| VS Code no muestra mi entorno como kernel | Regístralo con `python -m ipykernel install --user --name memento` y elígelo en **Select Kernel → Jupyter Kernel** |
+| `npm run dev` da error al arrancar | Tu Node.js es antiguo: instala la versión 20.19 o superior |
 | `ModuleNotFoundError: memento_kit` | El notebook no se abrió desde la carpeta `notebooks/` |
 | El agente con Ollama no usa herramientas | El modelo no soporta *tool calling*: usa `llama3.1:8b` |
 
