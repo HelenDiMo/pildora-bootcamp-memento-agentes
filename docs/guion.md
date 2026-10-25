@@ -2,46 +2,45 @@
 
 Diseño de agentes: patrones de planificación y memoria. Autora: Elena Díaz (@HelenDiMo)
 
-Va **después de otra masterclass**: la gente llegará cansada. Ritmo ágil, reto individual y nada de formar equipos.
+Va **después de otra masterclass**: la gente llegará cansada. Sin live coding: **las diapositivas lo explican todo** y el código queda en los apuntes (`01_apuntes.ipynb`) para leerlo con calma.
+
+| Bloque | Min | Con qué |
+|---|---|---|
+| 1. Explicación | 28 | Diapositivas 1-10 |
+| 2. Ejercicio individual | 22 | Diapositiva 11 + `02_reto_individual_TODO.ipynb` |
+| 3. Cierre | 8 | Diapositiva 12 |
+| Margen | 2 | |
 
 ## Antes de empezar
 
-- [ ] Kernel reiniciado, `PROVEEDOR` correcto y una llamada de prueba hecha
-- [ ] Web abierta en la diapositiva 1, notebook docente en la primera celda
+- [ ] Web abierta en la diapositiva 1
+- [ ] `02_reto_individual_TODO.ipynb` abierto, con el kernel ya conectado, por si hay que enseñar algo
 - [ ] Enlaces del repo y de la web listos para pegar en el chat
 
-## Bloque 1 · Contextualización (12 min): web
+## Bloque 1 · Explicación (28 min)
 
-| Diap. | Min | Qué decir |
-|---|---|---|
-| 1 Portada | 1 | Espera a que el título se dé la vuelta. «Leonard escribía sus tatuajes al revés para leerlos en el espejo.» |
-| 2 Leonard | 2 | Deja que el contador llegue a cero. «Esto le pasa a un LLM en cada llamada.» |
-| 3 Agente | 2 | Las dos preguntas son el temario. Repasa la tabla película ↔ agente. |
-| 4 ReAct | 2 | Pulsa «Reproducir». Señala cómo se ilumina el bucle agente ⇄ herramientas. |
-| 5 Plan-and-Execute | 2 | Ejecuta los 3 pasos; el tercero falla; pulsa «Replanificar». |
-| 6 Reflexión | 1 | Borrador → revisor → corregido. Menciona el coste extra. |
-| 7 Memoria | 2 | Pulsa los cuatro objetos. Insiste en corto plazo vs largo plazo. |
+**La idea que tienen que llevarse:** un agente es un LLM que pide herramientas y repite hasta tener la respuesta. Planificar es cómo decide qué hacer; memoria es cómo no empezar de cero.
 
-Las diapositivas 8 y 9 se usan en el bloque 3.
+| Diap. | Min | Qué decir (en sencillo) | Qué tocar |
+|---|---|---|---|
+| 1 Portada | 1 | «Hoy vamos a hablar de agentes a través de Leonard, el de *Memento*, que no puede guardar recuerdos nuevos.» | Espera a que el título se dé la vuelta: «Leonard escribía sus tatuajes al revés para leerlos en el espejo». |
+| 2 Leonard | 2 | «A un LLM le pasa lo mismo: cada mensaje lo lee desde cero. Si un chat parece recordar, es porque le reenvían toda la conversación.» | Deja que el contador llegue a cero. |
+| 3 Agente | 3 | «Un agente es un LLM + herramientas + repetir. En cada vuelta se pregunta dos cosas: qué hago ahora y qué ha pasado. Eso es planificación y memoria.» | Lee la tabla película ↔ agente. |
+| 4 Herramientas | 3 | «Una herramienta es una función de Python. Ojo: el LLM no la ejecuta, solo pide usarla. El programa la ejecuta y le devuelve el resultado. Ese ir y venir es el bucle del agente.» | Pulsa los dos botones despacio. |
+| 5 ReAct | 4 | «Primera forma de decidir: paso a paso. No hay plan; mira la última pista y decide la siguiente. Como un detective que tira del hilo.» | «Siguiente paso» uno a uno. Señala que cada pista lleva a la siguiente. |
+| 6 Plan-and-Execute | 3 | «Segunda forma: primero escribe una lista de pasos y luego los hace. Si uno falla, rehace el plan.» | Ejecuta los 3 pasos; el tercero falla; «Replanificar». |
+| 7 Reflexión | 2 | «Tercera forma: antes de responder, un revisor comprueba la respuesta. Más fiable, pero más lento y caro.» | Borrador → revisor → corregido. |
+| 8 Memoria | 4 | «Lo importante: corto plazo es esta conversación; largo plazo es para siempre. El largo plazo se divide en datos, experiencias y costumbres.» | Pulsa los cuatro objetos. |
+| 9 Hilos y almacén | 3 | «En código: el checkpointer guarda cada conversación con un nombre, el hilo. El Store es una libreta que comparten todas. El Store es lo que vais a programar.» | — |
+| 10 Envenenada | 3 | «Si alguien mete un dato falso en la memoria, el agente se lo cree. ¿Cómo lo evitamos?» | «Sin defensa» → «Con defensa». Pasa el ratón por los tatuajes. |
 
-## Bloque 2 · Live coding (18 min): `01_live_coding_docente.ipynb`
+**Si vas tarde:** acorta la 7 (Reflexión) a una frase; es la misión extra del ejercicio.
 
-| Paso | Min | Momento clave |
-|---|---|---|
-| 0-1 | 3 | La segunda llamada no sabe tu nombre |
-| 2 | 3 | `tool_calls`: el LLM pide, pero no ejecuta |
-| 3 | 5 | Construir el grafo y leer la traza 🔧 👁 |
-| 4 | 4 | Hilo 1 recuerda, hilo 2 no |
-| 5 | 3 | Ver el plan aparecer y los pasos con ✅ |
+## Bloque 2 · Ejercicio individual (22 min)
 
-**Si vas tarde:** salta el paso 5 y enséñalo con la diapositiva 5.
-
-## Bloque 3 · Reto individual (22 min): `02_reto_individual_TODO.ipynb`
-
-1. Diapositiva 8 (1 min): checkpointer vs Store, la base de la misión 1.
-2. Diapositiva 10: explica las 3 misiones y pulsa «Empezar» en el cronómetro.
-3. Hacia el minuto 8, enseña la diapositiva 9 (memoria envenenada) para quien llegue a la misión 2.
-4. Quien no tenga LLM puede abrir `03_reto_individual_solucion.ipynb` y seguir la traza.
+1. Diapositiva 11: explica las 3 misiones y pulsa «Empezar» en el cronómetro.
+2. Recuérdales que solo tienen que escribir donde pone `# TODO`.
+3. Quien no tenga LLM puede abrir `03_reto_individual_solucion.ipynb` y leer la traza.
 
 | Misión | Qué hacen | Tiempo |
 |---|---|---|
@@ -49,15 +48,25 @@ Las diapositivas 8 y 9 se usan en el bloque 3.
 | 2 · El tatuaje falso | Ejecutar el ataque y escribir una regla en español | ~8 min |
 | 3 · Extra: el revisor | Opcional, para quien vaya rápido | el resto |
 
-## Bloque 4 · Code review y cierre (8 min)
+## Bloque 3 · Cierre (8 min)
 
-1. Pide a alguien que comparta su regla de la misión 2 (o abre `03_reto_individual_solucion.ipynb`).
-2. Preguntas del final del notebook: checkpointer vs Store, ¿basta una regla en el prompt?, coste del revisor.
-3. Diapositiva 11: los cuatro «tatuajes» del resumen y los recursos.
+1. Pide a alguien que lea su regla de la misión 2. ¿Ha funcionado?
+2. Pregunta: «¿Basta una frase en el prompt para protegerse?» (No del todo: mejor apuntar de dónde sale cada dato y comprobarlo.)
+3. Diapositiva 12: los cuatro «tatuajes» del resumen. Recuérdales que en `01_apuntes.ipynb` tienen todo el código explicado paso a paso.
+
+## Preguntas que te pueden hacer
+
+| Pregunta | Respuesta sencilla |
+|---|---|
+| ¿Qué es LangGraph? | Una librería para montar agentes como un dibujo de cajas y flechas: cada caja hace una cosa y las flechas dicen a cuál ir después. |
+| ¿Qué diferencia hay entre LangChain y LangGraph? | LangChain da las piezas (LLM, herramientas); LangGraph las organiza en un bucle con memoria. |
+| ¿Por qué se llama ReAct? | De *Reasoning + Acting*: razonar y actuar, alternando. |
+| ¿El modelo de Ollama es igual de bueno que ChatGPT? | No: es mucho más pequeño. Por eso a veces hace cosas raras, pero para aprender va bien. |
+| ¿Dónde se guarda la memoria de verdad? | En el ejercicio, en la memoria del ordenador (se borra al reiniciar). En una aplicación real, en una base de datos. |
 
 ## Plan B
 
-- **Groq da error 429:** cambiar a Ollama o seguir con la traza simulada de la diapositiva 4.
+- **El LLM falla en el ejercicio:** que abran `03_reto_individual_solucion.ipynb` y lean la traza.
 - **Sin wifi:** la web funciona en local (`npm run dev`) y sus animaciones no llaman a ningún LLM.
 
 ## Aviso para la clase (enviar antes del lunes)

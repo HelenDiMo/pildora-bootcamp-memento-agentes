@@ -14,15 +14,15 @@ export default function Cierre() {
       <div>
         <h2 className="titulo">Lo que Leonard se tatuaría</h2>
         <ol className="resumen">
-          <li>Un agente es un LLM en bucle con herramientas. El LLM, por sí solo, no recuerda nada.</li>
-          <li><strong>ReAct</strong> decide paso a paso; <strong>Plan-and-Execute</strong> escribe el plan antes; <strong>Reflexión</strong> revisa antes de entregar.</li>
-          <li>Corto plazo = el hilo (checkpointer). Largo plazo = entre hilos (Store).</li>
-          <li>La memoria también miente: guarda la fuente y comprueba antes de confiar.</li>
+          <li>Un agente es un LLM que pide herramientas y repite hasta tener la respuesta. Por sí solo, no recuerda nada.</li>
+          <li>Para decidir qué hacer: paso a paso (<strong>ReAct</strong>), con un plan primero (<strong>Plan-and-Execute</strong>) o revisando antes de responder (<strong>Reflexión</strong>).</li>
+          <li>Memoria a corto plazo = esta conversación. A largo plazo = para siempre, en el almacén.</li>
+          <li>La memoria también puede mentir: apunta de dónde sale cada dato y compruébalo.</li>
         </ol>
         <h3 className="recursos-t">Para seguir</h3>
         <ul className="lista">
           {RECURSOS.map((r) => <li key={r.url}><a href={r.url} target="_blank" rel="noreferrer">{r.texto}</a></li>)}
-          <li><a href={REPO} target="_blank" rel="noreferrer">Repositorio de la masterclass</a></li>
+          <li><a href={REPO} target="_blank" rel="noreferrer">Repositorio: apuntes con todo el código explicado</a></li>
         </ul>
       </div>
       <Polaroid pie="Gracias. ¿Preguntas?" ancho="min(280px, 70vw)" giro={3} revelar>

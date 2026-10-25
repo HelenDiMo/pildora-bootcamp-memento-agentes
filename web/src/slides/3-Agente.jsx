@@ -1,28 +1,29 @@
 const PIEZAS = [
-  { pelicula: 'Leonard', concepto: 'El LLM', idea: 'Razona y decide, pero no recuerda.' },
-  { pelicula: 'El archivo policial, su cámara', concepto: 'Herramientas', idea: 'Funciones que el agente puede usar para actuar y obtener datos.' },
-  { pelicula: 'Su método para investigar', concepto: 'Planificación', idea: 'Cómo decide el siguiente paso, o el plan entero.' },
-  { pelicula: 'Polaroids y tatuajes', concepto: 'Memoria', idea: 'Lo que guarda fuera de su cabeza para no empezar de cero.' },
+  { pelicula: 'Leonard', concepto: 'El LLM', idea: 'Piensa y decide, pero no recuerda.' },
+  { pelicula: 'El archivo policial', concepto: 'Herramientas', idea: 'Funciones que puede pedir usar para conseguir datos.' },
+  { pelicula: 'Su forma de investigar', concepto: 'Planificación', idea: 'Cómo decide qué hacer a continuación.' },
+  { pelicula: 'Polaroids y tatuajes', concepto: 'Memoria', idea: 'Lo que apunta para no empezar de cero.' },
 ]
 
 export default function Agente() {
   return (
     <section>
-      <h2 className="titulo">Un agente es un LLM en bucle</h2>
+      <h2 className="titulo">¿Qué es un agente?</h2>
       <p className="ecuacion">
-        <span>LLM</span><b>+</b><span>herramientas</span><b>+</b><span>un bucle</span><b>=</b><span className="destaca">agente</span>
+        <span>LLM</span><b>+</b><span>herramientas</span><b>+</b><span>repetir</span><b>=</b><span className="destaca">agente</span>
       </p>
       <p className="subtitulo">
-        En cada vuelta del bucle, el agente tiene que responder dos preguntas. Esas dos preguntas son el temario de hoy.
+        Un agente es un LLM que puede usar herramientas y que lo intenta varias veces hasta conseguir la respuesta.
+        En cada intento se hace dos preguntas, que son el temario de hoy:
       </p>
       <div className="preguntas">
         <div className="panel">
           <p className="mano pregunta">«¿Qué hago ahora?»</p>
-          <p><strong>Planificación:</strong> ReAct, Plan-and-Execute y Reflexión.</p>
+          <p><strong>Planificación.</strong> Veremos tres formas de decidirlo.</p>
         </div>
         <div className="panel">
           <p className="mano pregunta">«¿Qué ha pasado hasta ahora?»</p>
-          <p><strong>Memoria:</strong> a corto plazo y a largo plazo.</p>
+          <p><strong>Memoria.</strong> Cómo guardar lo importante.</p>
         </div>
       </div>
       <table className="tabla piezas">

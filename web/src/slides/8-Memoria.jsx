@@ -4,32 +4,32 @@ import { Polaroid, Escena, Espejo } from '../componentes.jsx'
 const TIPOS = {
   corto: {
     nombre: 'Corto plazo',
-    pelicula: 'Lo que Leonard tiene en la cabeza ahora mismo. Dura unos minutos.',
-    agente: 'El historial de la conversación actual (el hilo).',
-    langgraph: 'Un checkpointer, identificado por thread_id.',
+    pelicula: 'Lo que Leonard tiene en la cabeza ahora mismo. Se le olvida en unos minutos.',
+    agente: 'La conversación que estás teniendo ahora con él.',
+    dura: 'Solo mientras dura esa conversación.',
   },
   semantica: {
-    nombre: 'Largo plazo: semántica',
-    pelicula: 'Los tatuajes: hechos que considera verdades.',
-    agente: 'Datos sobre el usuario o el mundo: «el dueño del coche es Jonás Gamell».',
-    langgraph: 'Un Store: put() y search() en un namespace.',
+    nombre: 'Largo plazo: datos',
+    pelicula: 'Los tatuajes: cosas que da por ciertas.',
+    agente: 'Datos que guarda para siempre: «el dueño del coche es Jonás Gamell».',
+    dura: 'Siempre, aunque empiece otra conversación.',
   },
   episodica: {
-    nombre: 'Largo plazo: episódica',
+    nombre: 'Largo plazo: experiencias',
     pelicula: 'Las polaroids: momentos concretos que vivió.',
-    agente: 'Ejemplos de tareas pasadas que se recuperan para hacerlo mejor.',
-    langgraph: 'También un Store, guardando ejemplos completos.',
+    agente: 'Ejemplos de tareas que ya hizo, para hacerlas mejor la próxima vez.',
+    dura: 'Siempre.',
   },
   procedimental: {
-    nombre: 'Largo plazo: procedimental',
+    nombre: 'Largo plazo: costumbres',
     pelicula: 'Su rutina: siempre mira sus notas antes de actuar.',
-    agente: 'Las instrucciones del prompt, que el agente puede ir ajustando.',
-    langgraph: 'El prompt del sistema (guardado y actualizado en un Store).',
+    agente: 'Sus instrucciones: cómo tiene que comportarse.',
+    dura: 'Siempre (y se pueden ir mejorando).',
   },
 }
 
 export default function Memoria() {
-  const [sel, setSel] = useState('semantica')
+  const [sel, setSel] = useState('corto')
   const t = TIPOS[sel]
   const boton = (id, contenido, clase) => (
     <button className={`objeto ${clase} ${sel === id ? 'sel' : ''}`} onClick={() => setSel(id)} aria-pressed={sel === id}>
@@ -40,21 +40,24 @@ export default function Memoria() {
 
   return (
     <section>
-      <h2 className="titulo">Cuatro tipos de memoria</h2>
-      <p className="subtitulo">Pulsa cada objeto. La clasificación viene del marco CoALA, el mismo que usa la documentación de LangGraph.</p>
+      <h2 className="titulo">La memoria de un agente</h2>
+      <p className="subtitulo">
+        Lo importante es la diferencia entre <strong>corto plazo</strong> (esta conversación) y <strong>largo plazo</strong> (para
+        siempre). El largo plazo se suele dividir en tres. Pulsa cada objeto.
+      </p>
       <div className="dos-col izq-ancha memoria">
         <div className="objetos">
           {boton('corto', <span className="mano post-it">Helen busca a J.G.<br />(no lo olvides…)</span>, 'o-corto')}
           {boton('semantica', <span className="tatuaje"><Espejo retraso={sel === 'semantica' ? 300 : null}>Jonás Gamell, mecánico</Espejo></span>, 'o-sem')}
           {boton('episodica', <Polaroid pie="Volví al motel. Ya no estaba." ancho={130} giro={3}><Escena tipo="motel" /></Polaroid>, 'o-epi')}
-          {boton('procedimental', <span className="ficha mano">1. No te fíes de tu cabeza<br />2. Mira tus notas<br />3. Anota la fuente</span>, 'o-proc')}
+          {boton('procedimental', <span className="ficha mano">1. No te fíes de tu cabeza<br />2. Mira tus notas<br />3. Apunta de dónde sale</span>, 'o-proc')}
         </div>
         <div className="panel detalle" aria-live="polite">
           <h3>{t.nombre}</h3>
           <dl>
             <dt>En la película</dt><dd>{t.pelicula}</dd>
             <dt>En un agente</dt><dd>{t.agente}</dd>
-            <dt>En LangGraph</dt><dd>{t.langgraph}</dd>
+            <dt>¿Cuánto dura?</dt><dd>{t.dura}</dd>
           </dl>
         </div>
       </div>

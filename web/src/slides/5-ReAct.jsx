@@ -5,17 +5,20 @@ import { Polaroid, Escena } from '../componentes.jsx'
 const PASOS = [
   { tipo: 'pensar', texto: 'Busco a J.G. Empiezo por el informe del incidente.' },
   { tipo: 'actuar', texto: 'buscar_archivo("informe")' },
-  { tipo: 'observar', texto: 'Un testigo vio las iniciales J.G. en la chaqueta del segundo intruso.', foto: 'informe', pie: 'J.G. = el 2º intruso' },
-  { tipo: 'pensar', texto: 'Necesito un nombre completo. ¿Dejó algo atrás?' },
+  { tipo: 'observar', texto: 'Un testigo vio las iniciales J.G. y lo vio huir hacia el motel.', foto: 'informe', pie: 'J.G. huyó al motel' },
+  { tipo: 'pensar', texto: 'Huyó al motel. Miro el registro.' },
+  { tipo: 'actuar', texto: 'buscar_archivo("motel")' },
+  { tipo: 'observar', texto: 'Habitación 21 a nombre de «J. Gamell». Dejó la matrícula de su coche, una berlina gris. Se fue hace 5 días.', foto: 'motel', pie: 'J. Gamell. Berlina gris.' },
+  { tipo: 'pensar', texto: 'Ya no está en el motel. ¿Y su coche?' },
   { tipo: 'actuar', texto: 'buscar_archivo("coche")' },
-  { tipo: 'observar', texto: 'Coche abandonado a nombre de Jonás Gamell, mecánico del taller Puerto Norte.', foto: 'coche', pie: 'Jonás Gamell. Mecánico.' },
-  { tipo: 'pensar', texto: 'Voy a por el taller.' },
+  { tipo: 'observar', texto: 'Berlina abandonada en el puerto. Es de Jonás Gamell, mecánico del taller Puerto Norte.', foto: 'coche', pie: 'Jonás Gamell. Mecánico.' },
+  { tipo: 'pensar', texto: 'Trabaja en un taller. Voy allí.' },
   { tipo: 'actuar', texto: 'buscar_archivo("taller")' },
   { tipo: 'observar', texto: 'El taller cerró hace 3 días. Dirección de contacto: calle del Faro, 7.', foto: 'taller', pie: 'Calle del Faro, 7' },
-  { tipo: 'responder', texto: 'J.G. es Jonás Gamell. Su última dirección conocida es calle del Faro, 7.' },
+  { tipo: 'responder', texto: 'J.G. es Jonás Gamell, mecánico. Su última dirección conocida es calle del Faro, 7.' },
 ]
 
-const ETIQUETA = { pensar: 'Pensamiento', actuar: 'Acción', observar: 'Observación', responder: 'Respuesta' }
+const ETIQUETA = { pensar: 'Piensa', actuar: 'Pide herramienta', observar: 'Recibe', responder: 'Responde' }
 
 export default function ReAct() {
   const [n, setN] = useState(0) // pasos visibles
@@ -43,10 +46,10 @@ export default function ReAct() {
     <section className="react">
       <div className="react-cabecera">
         <div>
-          <h2 className="titulo">ReAct: piensa, actúa, observa</h2>
+          <h2 className="titulo">Forma 1 · ReAct: paso a paso</h2>
           <p className="subtitulo">
-            El agente no tiene un plan escrito. En cada vuelta decide <strong>solo el siguiente paso</strong>,
-            a partir de lo último que ha visto.
+            No hay plan. El agente mira la última pista y decide <strong>solo el siguiente paso</strong>.
+            Como un detective que tira del hilo.
           </p>
         </div>
         <svg className="bucle" viewBox="0 0 300 120" role="img" aria-label="Bucle: el agente llama a herramientas y vuelve, hasta responder">
@@ -55,8 +58,8 @@ export default function ReAct() {
           <g className={`n ${nodo === 'herramientas' ? 'on' : ''}`}><rect x="175" y="35" width="115" height="44" rx="4" /><text x="232" y="62">herramientas</text></g>
           <path d="M110 46 C140 20 150 20 175 46" className="flecha" markerEnd="url(#pta)" />
           <path d="M175 70 C150 96 140 96 110 70" className="flecha" markerEnd="url(#pta)" />
-          <text x="142" y="16" className="mini">acción</text>
-          <text x="142" y="114" className="mini">observación</text>
+          <text x="142" y="16" className="mini">pide</text>
+          <text x="142" y="114" className="mini">recibe</text>
         </svg>
       </div>
 
@@ -73,7 +76,7 @@ export default function ReAct() {
 
         <div className="pared">
           {fotos.map((p, k) => (
-            <Polaroid key={p.foto} pie={p.pie} ancho={150} giro={[-4, 3, -1][k]} revelar>
+            <Polaroid key={p.foto} pie={p.pie} ancho={140} giro={[-4, 3, -1, 2][k]} revelar>
               <Escena tipo={p.foto} />
             </Polaroid>
           ))}

@@ -21,19 +21,19 @@ export default function PlanEjecuta() {
   return (
     <section className="dos-col">
       <div>
-        <h2 className="titulo">Plan-and-Execute</h2>
+        <h2 className="titulo">Forma 2 · Plan-and-Execute: plan primero</h2>
         <p className="subtitulo">
-          Primero se escribe el plan entero, luego se ejecuta paso a paso. Si un paso sale mal, se <strong>replanifica</strong>.
+          Primero escribe una lista de pasos. Luego los hace en orden. Si uno sale mal, <strong>rehace el plan</strong> (replanificar).
         </p>
         <table className="tabla">
           <thead><tr><th></th><th>ReAct</th><th>Plan-and-Execute</th></tr></thead>
           <tbody>
-            <tr><td className="suave">El plan</td><td>Implícito, paso a paso</td><td>Explícito, al principio</td></tr>
-            <tr><td className="suave">Ventaja</td><td>Se adapta a sorpresas</td><td>Ordenado y fácil de seguir</td></tr>
-            <tr><td className="suave">Riesgo</td><td>Dar vueltas en bucle</td><td>Plan rígido si algo cambia</td></tr>
+            <tr><td className="suave">El plan</td><td>No hay: decide sobre la marcha</td><td>Escrito al principio</td></tr>
+            <tr><td className="suave">Bueno para</td><td>Cuando no sabes qué vas a encontrar</td><td>Tareas largas y ordenadas</td></tr>
+            <tr><td className="suave">Riesgo</td><td>Dar vueltas sin avanzar</td><td>Seguir un plan que ya no sirve</td></tr>
           </tbody>
         </table>
-        <p className="suave nota">En el notebook, el plan sale del LLM como un modelo de <strong>Pydantic</strong> con una lista de pasos.</p>
+        <p className="suave nota">En los apuntes verás cómo se pide el plan al LLM como una lista, usando <strong>Pydantic</strong>.</p>
       </div>
 
       <div>

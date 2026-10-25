@@ -5,7 +5,7 @@ Autora: Elena Díaz ([@HelenDiMo](https://github.com/HelenDiMo))
 
 > ¿Y si tu agente de IA fuera Leonard Shelby? No recuerda nada por sí mismo y confía ciegamente en sus notas.
 
-Una masterclass de 60 minutos sobre cómo diseñar agentes con **LangGraph**:
+Una masterclass de 60 minutos sobre cómo diseñar agentes con **LangGraph**, explicada con lenguaje sencillo:
 
 - **Planificación:** ReAct, Plan-and-Execute y Reflexión.
 - **Memoria:** a corto plazo (hilos con *checkpointer*) y a largo plazo (*Store*).
@@ -17,7 +17,7 @@ El caso es una historia inventada, inspirada en la película *Memento* (2000).
 
 ```
 ├── notebooks/
-│   ├── 01_live_coding_docente.ipynb    # lo que se programa en directo
+│   ├── 01_apuntes.ipynb                # todo el código, explicado paso a paso
 │   ├── 02_reto_individual_TODO.ipynb   # el reto individual (con huecos)
 │   ├── 03_reto_individual_solucion.ipynb  # la solución
 │   └── memento_kit.py                  # LLM, herramientas del caso y traza
@@ -67,6 +67,10 @@ En el notebook, deja `PROVEEDOR = "groq"`.
 
 Ábrelos desde la carpeta `notebooks/` (así encuentran `memento_kit.py`).
 
+1. `01_apuntes.ipynb`: léelo y ejecútalo a tu ritmo. Explica todo con código.
+2. `02_reto_individual_TODO.ipynb`: el ejercicio. Solo tienes que escribir donde pone `# TODO`.
+3. `03_reto_individual_solucion.ipynb`: la solución, por si te atascas.
+
 ## Ver la presentación
 
 ```bash
@@ -92,6 +96,7 @@ Navega con las flechas ← → del teclado.
 | `Falta GROQ_API_KEY` | No existe el archivo `.env` o la clave está vacía |
 | Error 429 con Groq | Has llegado al límite gratuito: espera un minuto o usa Ollama |
 | `activate: No such file or directory` en Git Bash | Usa `source .venv/Scripts/activate` (con `/` y `Scripts`, no `bin`) |
+| Windows: `OSError: [Errno 2] No such file or directory` al instalar, con un aviso de *Long Path* | La ruta de tu carpeta es demasiado larga (límite de 260 caracteres). Crea el entorno en una ruta corta: `python -m venv /d/venvs/memento` y `source /d/venvs/memento/Scripts/activate`, y elige ese Python como kernel en VS Code |
 | `ModuleNotFoundError: memento_kit` | El notebook no se abrió desde la carpeta `notebooks/` |
 | El agente con Ollama no usa herramientas | El modelo no soporta *tool calling*: usa `llama3.1:8b` |
 

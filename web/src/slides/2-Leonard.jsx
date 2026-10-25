@@ -25,21 +25,21 @@ export default function Leonard() {
       <div>
         <h2 className="titulo">Un LLM es Leonard</h2>
         <p className="subtitulo">
-          Leonard no puede crear recuerdos nuevos: cada pocos minutos se despierta en blanco. Un LLM hace lo mismo
-          en cada llamada.
+          Leonard no puede guardar recuerdos nuevos: cada pocos minutos se despierta sin saber qué estaba haciendo.
+          A un LLM le pasa lo mismo cada vez que le escribes.
         </p>
         <ul className="lista">
-          <li>El LLM no guarda nada entre llamadas: es <strong>sin estado</strong> (<em>stateless</em>).</li>
-          <li>Lo que parece memoria en un chat es que <strong>le reenviamos el historial</strong> cada vez.</li>
-          <li>Ese historial cabe en una <strong>ventana de contexto</strong> limitada. Lo que no cabe, se olvida.</li>
+          <li>Cada mensaje que le mandas, el LLM lo lee <strong>desde cero</strong>.</li>
+          <li>Si un chat parece recordar, es porque el programa <strong>le vuelve a enviar toda la conversación</strong> cada vez.</li>
+          <li>Y eso tiene un límite: si la conversación es muy larga, lo más antiguo se pierde.</li>
         </ul>
       </div>
 
       <div className={`chat ${borrado ? 'chat-borrado' : ''}`} aria-live="polite">
         <div className="chat-cabecera">
-          <span>Hilo de conversación</span>
+          <span>Conversación</span>
           <span className={`reloj ${quedan <= 3 ? 'aviso' : ''}`}>
-            {borrado ? 'contexto perdido' : `se olvida en ${quedan}s`}
+            {borrado ? 'memoria perdida' : `se olvida en ${quedan}s`}
           </span>
         </div>
         {CONVERSACION.map((m, n) => (

@@ -11,14 +11,14 @@ export default function Reflexion() {
   return (
     <section className="dos-col">
       <div>
-        <h2 className="titulo">Reflexión: revisar antes de entregar</h2>
+        <h2 className="titulo">Forma 3 · Reflexión: revisar antes de responder</h2>
         <p className="subtitulo">
-          Un segundo paso del LLM (o un segundo LLM) critica la respuesta. Si no aprueba, el agente lo intenta otra vez.
+          Antes de dar la respuesta, se la pasa a un «revisor» (otra llamada al LLM). Si el revisor ve un fallo, el agente lo corrige.
         </p>
         <ul className="lista">
-          <li>Detecta datos inventados o que contradicen las pistas.</li>
-          <li>Cuesta más llamadas al LLM: hay que poner un <strong>máximo de intentos</strong>.</li>
-          <li>Merece la pena cuando un error sale caro.</li>
+          <li>Sirve para pillar datos inventados o que no cuadran con las pistas.</li>
+          <li>Cada revisión es otra llamada al LLM: más lento y más caro. Por eso se pone un <strong>máximo de intentos</strong>.</li>
+          <li>Vale la pena cuando equivocarse sale caro.</li>
         </ul>
       </div>
       <div>

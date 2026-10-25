@@ -12,8 +12,8 @@ export default function Envenenada() {
     <section>
       <h2 className="titulo">Memoria envenenada</h2>
       <p className="subtitulo">
-        Leonard confía en sus notas aunque alguien las haya cambiado. Un agente hace lo mismo: un dato falso en
-        memoria se repite con total seguridad.
+        Leonard se cree sus notas aunque alguien las haya cambiado. Un agente hace lo mismo: si en su memoria
+        hay un dato falso, lo repite tan tranquilo.
       </p>
 
       <div className="dos-col">
@@ -44,10 +44,10 @@ export default function Envenenada() {
             )}
           </div>
           <ul className="lista defensas">
-            <li><strong>Guardar la fuente</strong> de cada recuerdo.</li>
-            <li><strong>Validar al escribir:</strong> no todo merece un tatuaje.</li>
-            <li><strong>Comprobar antes de usar</strong> lo que no tiene fuente fiable.</li>
-            <li><strong>Caducidad:</strong> un dato de hace semanas puede estar viejo.</li>
+            <li><strong>Apuntar de dónde sale</strong> cada dato (la fuente).</li>
+            <li><strong>Pensar antes de guardar:</strong> no todo merece un tatuaje.</li>
+            <li><strong>Comprobar antes de usar</strong> lo que no tiene una fuente fiable.</li>
+            <li><strong>Fecha de caducidad:</strong> un dato antiguo puede haber cambiado.</li>
           </ul>
         </div>
       </div>
