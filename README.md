@@ -37,7 +37,9 @@ El caso es una historia inventada, inspirada en la película *Memento* (2000).
 git clone https://github.com/HelenDiMo/pildora-bootcamp-memento-agentes.git
 cd pildora-bootcamp-memento-agentes
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+source .venv/bin/activate        # Mac / Linux
+# Windows con Git Bash:   source .venv/Scripts/activate
+# Windows con PowerShell: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
@@ -89,6 +91,7 @@ Navega con las flechas ← → del teclado.
 |---|---|
 | `Falta GROQ_API_KEY` | No existe el archivo `.env` o la clave está vacía |
 | Error 429 con Groq | Has llegado al límite gratuito: espera un minuto o usa Ollama |
+| `activate: No such file or directory` en Git Bash | Usa `source .venv/Scripts/activate` (con `/` y `Scripts`, no `bin`) |
 | `ModuleNotFoundError: memento_kit` | El notebook no se abrió desde la carpeta `notebooks/` |
 | El agente con Ollama no usa herramientas | El modelo no soporta *tool calling*: usa `llama3.1:8b` |
 
