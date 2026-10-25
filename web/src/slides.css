@@ -130,7 +130,10 @@
 .cronometro { text-align: center; }
 .cronometro .tiempo { display: block; font-family: var(--f-titulo); font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; color: var(--papel); font-variant-numeric: tabular-nums; margin-bottom: 8px; }
 .cronometro.fin .tiempo { color: var(--quimico); }
-.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 1rem 0 1.4rem; }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 1rem 0 1.4rem; padding: 0; list-style: none; }
+.rol.extra { background: transparent; color: var(--texto); box-shadow: none; border: 1.5px dashed var(--texto-suave); }
+.rol.extra .rol-nombre { color: var(--tinta-clara); }
+.rol.extra .suave { color: var(--texto-suave); }
 .rol { background: var(--papel); color: #222; padding: 16px 18px 18px; rotate: var(--giro); box-shadow: 0 14px 26px rgba(5,10,16,.4); }
 .rol-nombre { color: var(--tinta); font-size: 1.6rem; line-height: 1.1; margin-bottom: .3rem; }
 .rol .suave { color: #666; font-size: .85rem; margin-top: .4rem; }

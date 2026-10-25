@@ -2,7 +2,7 @@
 
 Diseño de agentes: patrones de planificación y memoria. Autora: Elena Díaz (@HelenDiMo)
 
-Después hay otra masterclass: **el cierre no se mueve**.
+Va **después de otra masterclass**: la gente llegará cansada. Ritmo ágil, reto individual y nada de formar equipos.
 
 ## Antes de empezar
 
@@ -36,16 +36,23 @@ Las diapositivas 8 y 9 se usan en el bloque 3.
 
 **Si vas tarde:** salta el paso 5 y enséñalo con la diapositiva 5.
 
-## Bloque 3 · Reto por equipos (22 min): `02_reto_equipos_TODO.ipynb`
+## Bloque 3 · Reto individual (22 min): `02_reto_individual_TODO.ipynb`
 
-1. Diapositiva 8 (1 min): checkpointer vs Store, la base del rol A.
-2. Diapositiva 10: formar equipos, repartir roles y **comprobar que cada equipo tiene un LLM funcionando**. Pulsa «Empezar» en el cronómetro.
-3. A mitad del reto, enseña la diapositiva 9 (memoria envenenada) para el rol C.
+1. Diapositiva 8 (1 min): checkpointer vs Store, la base de la misión 1.
+2. Diapositiva 10: explica las 3 misiones y pulsa «Empezar» en el cronómetro.
+3. Hacia el minuto 8, enseña la diapositiva 9 (memoria envenenada) para quien llegue a la misión 2.
+4. Quien no tenga LLM puede abrir `03_reto_individual_solucion.ipynb` y seguir la traza.
+
+| Misión | Qué hacen | Tiempo |
+|---|---|---|
+| 1 · Tatuar | Completar 2 líneas (`store.put` y `store.search`) | ~8 min |
+| 2 · El tatuaje falso | Ejecutar el ataque y escribir una regla en español | ~8 min |
+| 3 · Extra: el revisor | Opcional, para quien vaya rápido | el resto |
 
 ## Bloque 4 · Code review y cierre (8 min)
 
-1. Un equipo enseña su solución (o abre `03_reto_equipos_solucion.ipynb`).
-2. Preguntas del final del notebook: checkpointer vs Store, coste del revisor, ¿basta una regla en el prompt?
+1. Pide a alguien que comparta su regla de la misión 2 (o abre `03_reto_individual_solucion.ipynb`).
+2. Preguntas del final del notebook: checkpointer vs Store, ¿basta una regla en el prompt?, coste del revisor.
 3. Diapositiva 11: los cuatro «tatuajes» del resumen y los recursos.
 
 ## Plan B

@@ -18,8 +18,8 @@ El caso es una historia inventada, inspirada en la película *Memento* (2000).
 ```
 ├── notebooks/
 │   ├── 01_live_coding_docente.ipynb    # lo que se programa en directo
-│   ├── 02_reto_equipos_TODO.ipynb      # el reto por equipos (con huecos)
-│   ├── 03_reto_equipos_solucion.ipynb  # la solución, para el code review
+│   ├── 02_reto_individual_TODO.ipynb   # el reto individual (con huecos)
+│   ├── 03_reto_individual_solucion.ipynb  # la solución
 │   └── memento_kit.py                  # LLM, herramientas del caso y traza
 ├── docs/
 │   ├── teoria.pdf / teoria.docx        # teoría completa
@@ -75,13 +75,13 @@ npm run dev
 
 Navega con las flechas ← → del teclado.
 
-## El reto por equipos (22 min)
+## El reto individual (22 min)
 
-| Rol | Misión | Concepto |
+| Misión | Qué haces | Concepto |
 |---|---|---|
-| 🖋️ Tatuador | Implementar `tatuar` y `leer_tatuajes` | Memoria a largo plazo |
-| 🔍 Revisor | Nodo que revisa la respuesta antes de entregarla | Reflexión |
-| 🃏 Saboteador | Colar un tatuaje falso y defender al agente | Memoria envenenada |
+| 🖋️ 1 · Tatuar | Completar 2 líneas para guardar y leer en el Store | Memoria a largo plazo |
+| 🃏 2 · El tatuaje falso | Ver el ataque y escribir una regla en español | Memoria envenenada |
+| 🔍 3 · Extra: el revisor | Opcional: otro paso del LLM revisa la respuesta | Reflexión |
 
 ## Problemas frecuentes
 

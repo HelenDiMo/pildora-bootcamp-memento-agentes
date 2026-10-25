@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { REPO } from '../componentes.jsx'
 
 const MINUTOS = 22
-const ROLES = [
-  { nombre: 'Tatuador', mision: 'Implementa tatuar y leer_tatuajes con el Store.', concepto: 'Memoria a largo plazo' },
-  { nombre: 'Revisor', mision: 'Crea el nodo que revisa la respuesta antes de entregarla.', concepto: 'Reflexión' },
-  { nombre: 'Saboteador', mision: 'Cuela un tatuaje falso y escribe la regla que defiende al agente.', concepto: 'Memoria envenenada' },
+const MISIONES = [
+  { nombre: 'Tatuar', mision: 'Completa 2 líneas para guardar y leer tatuajes en el Store.', concepto: 'Memoria a largo plazo', tiempo: '~8 min' },
+  { nombre: 'El tatuaje falso', mision: 'Mira cómo Leonard se cree un tatuaje falso y escribe, en español, la regla que lo defiende.', concepto: 'Memoria envenenada', tiempo: '~8 min' },
+  { nombre: 'Extra: el revisor', mision: 'Si te sobra tiempo: haz que otro paso del LLM revise la respuesta.', concepto: 'Reflexión', tiempo: 'el resto' },
 ]
 
 export default function Reto() {
@@ -25,9 +25,10 @@ export default function Reto() {
     <section>
       <div className="reto-cabecera">
         <div>
-          <h2 className="titulo">El reto, por equipos</h2>
+          <h2 className="titulo">Tu reto: tres misiones</h2>
           <p className="subtitulo">
-            Abrid <code>notebooks/02_reto_equipos_TODO.ipynb</code> y repartid estos roles. Buscad los <code>TODO</code>.
+            Abre <code>notebooks/02_reto_individual_TODO.ipynb</code> y hazlas en orden. Busca los <code>TODO</code>:
+            todo lo demás ya funciona.
           </p>
         </div>
         <div className={`cronometro ${quedan === 0 ? 'fin' : ''}`}>
@@ -39,22 +40,22 @@ export default function Reto() {
         </div>
       </div>
 
-      <div className="roles">
-        {ROLES.map((r, k) => (
-          <div key={r.nombre} className="rol" style={{ '--giro': `${[-1.5, 1, -0.5][k]}deg` }}>
-            <p className="mano rol-nombre">{r.nombre}</p>
-            <p>{r.mision}</p>
-            <p className="suave">{r.concepto}</p>
-          </div>
+      <ol className="roles">
+        {MISIONES.map((m, k) => (
+          <li key={m.nombre} className={`rol ${k === 2 ? 'extra' : ''}`} style={{ '--giro': `${[-1.5, 1, -0.5][k]}deg` }}>
+            <p className="mano rol-nombre">{k + 1}. {m.nombre}</p>
+            <p>{m.mision}</p>
+            <p className="suave">{m.concepto} · {m.tiempo}</p>
+          </li>
         ))}
-      </div>
+      </ol>
 
       <div className="dos-col preparar">
         <div className="panel">
           <h3>¿Con qué LLM?</h3>
           <p><strong>Ollama:</strong> con el modelo ya descargado (<code>ollama pull llama3.1:8b</code>).</p>
-          <p><strong>Groq:</strong> clave gratuita en console.groq.com, pegada en vuestro archivo <code>.env</code>.</p>
-          <p className="suave">Con que una persona del equipo tenga uno funcionando, basta.</p>
+          <p><strong>Groq:</strong> clave gratuita en console.groq.com, pegada en tu archivo <code>.env</code>.</p>
+          <p className="suave">¿Sin ninguno? Abre la solución y sigue la traza: también vale.</p>
         </div>
         <div className="panel">
           <h3>El repositorio</h3>
