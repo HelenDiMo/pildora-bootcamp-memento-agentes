@@ -35,7 +35,9 @@ code { font-family: var(--f-codigo); font-size: .88em; }
 
 /* ---------- escenario ---------- */
 .escenario {
-  min-height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: grid;
   grid-template-rows: 1fr auto;
   background:
@@ -45,12 +47,15 @@ code { font-family: var(--f-codigo); font-size: .88em; }
 .diapositiva {
   width: min(1240px, 100%);
   margin: 0 auto;
-  padding: clamp(28px, 4.5vh, 64px) clamp(16px, 4vw, 56px) 24px;
+  padding: clamp(20px, 4vh, 56px) clamp(16px, 4vw, 56px) 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 0;
+  overflow: hidden;
   animation: entrar .5s ease both;
 }
+.encaje { width: 100%; transform-origin: center center; }
 @keyframes entrar { from { opacity: 0; } to { opacity: 1; } }
 
 /* ---------- tipografía ---------- */
@@ -195,4 +200,10 @@ table.tabla th { color: var(--texto-suave); font-weight: 600; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Móvil: se desplaza como una web normal en vez de encoger */
+@media (max-width: 699px) {
+  .escenario { height: auto; min-height: 100dvh; overflow: visible; }
+  .diapositiva { overflow: visible; }
 }

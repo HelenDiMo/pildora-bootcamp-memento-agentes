@@ -172,3 +172,15 @@
 .react .paso { padding: 3px 10px; font-size: .86rem; line-height: 1.35; }
 .react .paso .etq { font-size: .78rem; }
 .react .react-cuerpo { margin-bottom: .7rem; }
+
+/* Plan-and-Execute: qué sabe al empezar */
+.plan .titulo { font-size: clamp(2.2rem, 4.2vw, 3.8rem); }
+.plan .subtitulo { margin-bottom: .9rem; }
+.sabe { margin-bottom: 1rem; border-left: 4px solid var(--tinta-clara); }
+.sabe-t { font-family: var(--f-mano); color: var(--tinta-clara); font-size: 1.15rem; margin-bottom: .3rem; }
+.sabe p + p { margin-top: .35rem; }
+.plan .libreta li .resultado { font-size: .8rem; }
+.dos-col.plan { grid-template-columns: 1.15fr .85fr; }
+.plan .tabla { font-size: .86rem; }
+.plan .tabla th, .plan .tabla td { padding: 6px 10px; }
+@media (max-width: 820px) { .dos-col.plan { grid-template-columns: 1fr; } }

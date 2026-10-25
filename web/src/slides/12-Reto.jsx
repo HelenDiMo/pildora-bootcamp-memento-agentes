@@ -27,8 +27,8 @@ export default function Reto() {
         <div>
           <h2 className="titulo">Tu reto: tres misiones</h2>
           <p className="subtitulo">
-            Abre <code>notebooks/02_reto_individual_TODO.ipynb</code> y hazlas en orden. Busca los <code>TODO</code>:
-            todo lo demás ya funciona.
+            Para hacer en clase o en casa. Abre <code>notebooks/02_reto_individual_TODO.ipynb</code> y hazlas en orden.
+            Busca los <code>TODO</code>: todo lo demás ya funciona.
           </p>
         </div>
         <div className={`cronometro ${quedan === 0 ? 'fin' : ''}`}>
@@ -55,7 +55,7 @@ export default function Reto() {
           <h3>¿Con qué LLM?</h3>
           <p><strong>Ollama:</strong> con el modelo ya descargado (<code>ollama pull llama3.1:8b</code>).</p>
           <p><strong>Groq:</strong> clave gratuita en console.groq.com, pegada en tu archivo <code>.env</code>.</p>
-          <p className="suave">¿Sin ninguno? Abre la solución y sigue la traza: también vale.</p>
+          <p className="suave">¿Sin ninguno? Abre la solución (<code>03_reto_individual_solucion.ipynb</code>) y sigue la traza: también vale.</p>
         </div>
         <div className="panel">
           <h3>El repositorio</h3>
